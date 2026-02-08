@@ -46,8 +46,27 @@ sudo cp pomodoro.sh /usr/local/bin/pomodoro
 sudo chmod +x /usr/local/bin/pomodoro
 ```
 
-### Windows (Git Bash)
+### Windows (Command Prompt / PowerShell)
 
+**Option 1: Using the batch file**
+```batch
+# Run directly
+pomodoro.bat
+
+# Or with custom times
+pomodoro.bat 30 10
+```
+
+**Option 2: Install to PATH**
+```batch
+# Copy to a directory in your PATH (e.g., C:\Windows\System32 or a custom folder)
+copy pomodoro.bat C:\Tools\pomodoro.bat
+
+# Add to PATH via System Properties or PowerShell:
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Tools", "User")
+```
+
+**Option 3: Using Git Bash**
 ```bash
 # Copy to a directory in your PATH
 cp pomodoro.sh /usr/bin/pomodoro
@@ -86,6 +105,13 @@ rm ~/.local/bin/pomodoro
 sudo rm /usr/local/bin/pomodoro
 ```
 
+### Windows (Command Prompt / PowerShell)
+
+```batch
+# Remove batch file from PATH location
+del C:\Tools\pomodoro.bat
+```
+
 ### Windows (Git Bash)
 
 ```bash
@@ -96,7 +122,8 @@ rm /usr/bin/pomodoro
 
 ```
 .
-├── pomodoro.sh    # Main script
+├── pomodoro.sh    # Main script (Linux/macOS)
+├── pomodoro.bat   # Windows batch script
 ├── install.sh     # Installation helper
 └── README.md      # This file
 ```
